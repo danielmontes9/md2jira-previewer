@@ -46,11 +46,11 @@ export function transformTable(node: Table): string {
     }
 
     if (rowIdx === 0) {
-      // Header row
-      lines.push(`|| ${cells.join(' || ')} ||`)
+      // Header row: ||heading1||heading2||
+      lines.push(`||${cells.join('||')}||`)
     } else {
-      // Data row
-      lines.push(`| ${cells.join(' | ')} |`)
+      // Data row: |cell1|cell2|
+      lines.push(`|${cells.join('|')}|`)
     }
   }
 

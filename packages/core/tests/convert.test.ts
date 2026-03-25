@@ -127,27 +127,27 @@ describe('horizontal rules', () => {
 describe('tables', () => {
   it('converts simple table', () => {
     const md = '| Name | Age |\n|------|-----|\n| John | 30 |'
-    expect(convert(md)).toBe('|| Name || Age ||\n| John | 30 |')
+    expect(convert(md)).toBe('||Name||Age||\n|John|30|')
   })
 
   it('converts table with inline formatting', () => {
     const md = '| Field | Value |\n|-------|-------|\n| Status | **High** |'
-    expect(convert(md)).toBe('|| Field || Value ||\n| Status | *High* |')
+    expect(convert(md)).toBe('||Field||Value||\n|Status|*High*|')
   })
 
   it('normalizes unequal column count', () => {
     const md = '| A | B | C |\n|---|---|---|\n| 1 | 2 |'
-    expect(convert(md)).toBe('|| A || B || C ||\n| 1 | 2 |  |')
+    expect(convert(md)).toBe('||A||B||C||\n|1|2||')
   })
 
   it('escapes curly braces in cells', () => {
     const md = '| Formula |\n|---------|\n| {value} |'
-    expect(convert(md)).toBe('|| Formula ||\n| \\{value\\} |')
+    expect(convert(md)).toBe('||Formula||\n|\\{value\\}|')
   })
 
   it('converts links inside table cells', () => {
     const md = '| Link |\n|------|\n| [Google](https://google.com) |'
-    expect(convert(md)).toBe('|| Link ||\n| [Google|https://google.com] |')
+    expect(convert(md)).toBe('||Link||\n|[Google|https://google.com]|')
   })
 })
 
