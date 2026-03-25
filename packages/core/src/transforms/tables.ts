@@ -1,0 +1,68 @@
+import type { Table, TableRow, TableCell } from 'mdast'
+import { convertInlineChildren } from './formatting.js'
+
+function escapeJiraCell(text: string): string {
+  let escaped = text
+  escaped = escaped.replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+  // Escape standalone brackets [text] (no URL pattern)
+  escaped = escaped.replace(/\[([^\]|]*)\]/g, (match, inner: string) => {
+    // If it already looks like a Jira link [text|url], don't escape
+    if (inner.includes('|')) return match
+    // If it looks like a converted link, don't escape
+    return `\\[${inner}\\]`
+  })
+  return escaped
+}
+
+function getCellText(cell: TableCell): string {
+  const parts: string[] = []
+
+  for (const child of cell.children) {
+    if (child.type === 'paragraph') {
+      parts.push(convertInlineChildren(child.children))
+    } else {
+      parts.push(convertInlineChildren([child]))
+    }
+  }
+
+  const text = parts.join('<br>')
+  return escapeJiraCell(text)
+}
+
+function normalizeColumnCount(rows: TableRow[]): number {
+  let maxCols = 0
+  for (const row of rows) {
+    if (row.children.length > maxCols) {
+      maxCols = row.children.length
+    }
+  }
+  return maxCols
+}
+
+export function transformTable(node: Table): string {
+  const rows = node.children as TableRow[]
+  if (rows.length === 0) return ''
+
+  const colCount = normalizeColumnCount(rows)
+  const lines: string[] = []
+
+  for (let rowIdx = 0; rowIdx < rows.length; rowIdx++) {
+    const row = rows[rowIdx]!
+    const cells: string[] = []
+
+    for (let colIdx = 0; colIdx < colCount; colIdx++) {
+      const cell = row.children[colIdx] as TableCell | undefined
+      cells.push(cell ? getCellText(cell) : '')
+    }
+
+    if (rowIdx === 0) {
+      // Header row
+      lines.push(`|| ${cells.join(' || ')} ||`)
+    } else {
+      // Data row
+      lines.push(`| ${cells.join(' | ')} |`)
+    }
+  }
+
+  return lines.join('\n')
+}
