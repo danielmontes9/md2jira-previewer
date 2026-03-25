@@ -15,17 +15,7 @@ function escapeJiraCell(text: string): string {
 }
 
 function getCellText(cell: TableCell): string {
-  const parts: string[] = []
-
-  for (const child of cell.children) {
-    if (child.type === 'paragraph') {
-      parts.push(convertInlineChildren(child.children))
-    } else {
-      parts.push(convertInlineChildren([child]))
-    }
-  }
-
-  const text = parts.join('<br>')
+  const text = convertInlineChildren(cell.children)
   return escapeJiraCell(text)
 }
 
