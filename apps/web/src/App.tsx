@@ -65,18 +65,24 @@ export function App() {
   return (
     <div className="flex h-screen flex-col bg-white dark:bg-neutral-950">
       <Header theme={theme} onToggleTheme={toggleTheme} />
-      <main className="flex flex-1 gap-4 overflow-hidden p-4">
-        <div className="flex min-h-0 flex-1 flex-col">
-          <MarkdownInput value={markdown} onChange={setMarkdown} />
+      <noscript>
+        <div className="p-8 text-center">
+          <h2 className="text-xl font-bold">md2jira-previewer</h2>
+          <p>Convert Markdown to Jira Wiki Markup and Atlassian Document Format (ADF). Please enable JavaScript to use this tool.</p>
         </div>
-        <div className="flex min-h-0 flex-1 flex-col">
+      </noscript>
+      <main className="flex flex-1 gap-4 overflow-hidden p-4">
+        <section aria-label="Markdown input" className="flex min-h-0 flex-1 flex-col">
+          <MarkdownInput value={markdown} onChange={setMarkdown} />
+        </section>
+        <section aria-label="Jira output" className="flex min-h-0 flex-1 flex-col">
           <JiraOutput
             value={jiraOutput()}
             format={format}
             onFormatChange={setFormat}
             markdown={markdown}
           />
-        </div>
+        </section>
       </main>
     </div>
   )
