@@ -1,6 +1,16 @@
 import { useState, useCallback, useMemo } from 'react'
 import { convertToAdf } from '@md2jira-previewer/core'
-import type { AdfDocument, AdfBlockNode, AdfInlineNode, AdfMark, AdfListItemNode, AdfTextNode, AdfTableRowNode, AdfTableHeaderNode, AdfTableCellNode } from '@md2jira-previewer/core'
+import type {
+  AdfDocument,
+  AdfBlockNode,
+  AdfInlineNode,
+  AdfMark,
+  AdfListItemNode,
+  AdfTextNode,
+  AdfTableRowNode,
+  AdfTableHeaderNode,
+  AdfTableCellNode,
+} from '@md2jira-previewer/core'
 
 type OutputFormat = 'wiki' | 'adf'
 type ViewMode = 'preview' | 'code'
@@ -159,11 +169,7 @@ export function JiraOutput({ value, format, onFormatChange, markdown }: JiraOutp
           onClick={handleCopy}
           className="rounded-md bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
         >
-          {copied
-            ? 'Copied!'
-            : format === 'adf'
-              ? 'Copy for Jira'
-              : 'Copy'}
+          {copied ? 'Copied!' : format === 'adf' ? 'Copy for Jira' : 'Copy'}
         </button>
       </div>
       {format === 'adf' && viewMode === 'code' && (
