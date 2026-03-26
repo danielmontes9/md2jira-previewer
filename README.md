@@ -2,7 +2,7 @@
 
 # md2jira-previewer
 
-**Convert Markdown to Jira Wiki Markup instantly, in your browser.**
+**Convert Markdown to Jira Wiki Markup and Atlassian Document Format (ADF), instantly in your browser.**
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/danielmontes9/md2jira-previewer/ci.yml?branch=main&style=flat-square)](https://github.com/danielmontes9/md2jira-previewer/actions)
 [![npm version](https://img.shields.io/npm/v/@md2jira-previewer/core?style=flat-square)](https://www.npmjs.com/package/@md2jira-previewer/core)
