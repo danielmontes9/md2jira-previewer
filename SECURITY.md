@@ -2,17 +2,18 @@
 
 ## Supported Versions
 
-| Version | Supported |
-|---------|-----------|
-| latest  |  |
+| Version | Supported          |
+| ------- | ------------------ |
+| latest  | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Please report security issues by emailing: **security@your-domain.com**
+Please use [GitHub's Private Vulnerability Reporting](https://github.com/danielmontes9/md2jira-previewer/security/advisories/new) to report security issues.
 
-Include:
+When reporting, include:
+
 - Description of the vulnerability
 - Steps to reproduce
 - Potential impact
