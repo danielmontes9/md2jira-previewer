@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from 'react'
 import { convertToAdf } from '@md2jira-previewer/core'
-import type { AdfDocument, AdfBlockNode, AdfInlineNode, AdfMark } from '@md2jira-previewer/core'
+import type { AdfDocument, AdfBlockNode, AdfInlineNode, AdfMark, AdfListItemNode, AdfTextNode, AdfTableRowNode, AdfTableHeaderNode, AdfTableCellNode } from '@md2jira-previewer/core'
 
 type OutputFormat = 'wiki' | 'adf'
 type ViewMode = 'preview' | 'code'
@@ -46,18 +46,18 @@ function adfBlockToHtml(node: AdfBlockNode): string {
     case 'paragraph':
       return `<p>${node.content.map(adfInlineToHtml).join('')}</p>`
     case 'bulletList':
-      return `<ul>${node.content.map((item) => `<li>${item.content.map(adfBlockToHtml).join('')}</li>`).join('')}</ul>`
+      return `<ul>${node.content.map((item: AdfListItemNode) => `<li>${item.content.map(adfBlockToHtml).join('')}</li>`).join('')}</ul>`
     case 'orderedList':
-      return `<ol>${node.content.map((item) => `<li>${item.content.map(adfBlockToHtml).join('')}</li>`).join('')}</ol>`
+      return `<ol>${node.content.map((item: AdfListItemNode) => `<li>${item.content.map(adfBlockToHtml).join('')}</li>`).join('')}</ol>`
     case 'codeBlock':
-      return `<pre><code>${node.content.map((t) => t.text).join('')}</code></pre>`
+      return `<pre><code>${node.content.map((t: AdfTextNode) => t.text).join('')}</code></pre>`
     case 'blockquote':
       return `<blockquote>${node.content.map(adfBlockToHtml).join('')}</blockquote>`
     case 'rule':
       return '<hr>'
     case 'table': {
-      const rows = node.content.map((row) => {
-        const cells = row.content.map((cell) => {
+      const rows = node.content.map((row: AdfTableRowNode) => {
+        const cells = row.content.map((cell: AdfTableHeaderNode | AdfTableCellNode) => {
           const tag = cell.type === 'tableHeader' ? 'th' : 'td'
           const inner = cell.content.map(adfBlockToHtml).join('')
           return `<${tag}>${inner}</${tag}>`

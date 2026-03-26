@@ -4,4 +4,4 @@
  */
 export { convert } from './converter.js'
 export { convertToAdf } from './adf-converter.js'
-export type { AdfDocument, AdfBlockNode, AdfInlineNode, AdfMark } from './adf-types.js'
+export type { AdfDocument, AdfBlockNode, AdfInlineNode, AdfMark, AdfListItemNode, AdfTextNode, AdfTableRowNode, AdfTableHeaderNode, AdfTableCellNode } from './adf-types.js'
