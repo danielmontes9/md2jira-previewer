@@ -2,7 +2,7 @@
 
 # md2jira-previewer
 
-**Convert Markdown to Jira Wiki Markup  instantly, in your browser.**
+**Convert Markdown to Jira Wiki Markup instantly, in your browser.**
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/danielmontes9/md2jira-previewer/ci.yml?branch=main&style=flat-square)](https://github.com/danielmontes9/md2jira-previewer/actions)
 [![npm version](https://img.shields.io/npm/v/@md2jira-previewer/core?style=flat-square)](https://www.npmjs.com/package/@md2jira-previewer/core)
@@ -18,7 +18,7 @@
 
 ## What is md2jira-previewer?
 
-md2jira-previewer is an open-source tool that converts **Markdown** into **Jira Wiki Markup**  the format Jira uses natively for issue descriptions, comments, and wiki pages.
+md2jira-previewer is an open-source tool that converts **Markdown** into **Jira Wiki Markup** the format Jira uses natively for issue descriptions, comments, and wiki pages.
 
 Paste your Markdown on the left, get Jira-ready markup on the right. No backend, no accounts, no data sent anywhere.
 
@@ -37,7 +37,7 @@ Paste your Markdown on the left, get Jira-ready markup on the right. No backend,
 - **Headers** (h1h6, overflow normalized to h6)
 - **Text formatting**: bold, italic, strikethrough, inline code
 - **Lists**: unordered and ordered, with nested levels
-- **Links**: `[text](url)`  `[text|url]`
+- **Links**: `[text](url)` `[text|url]`
 - **Code blocks** with language detection
 - **Blockquotes**
 - **Horizontal rules**
