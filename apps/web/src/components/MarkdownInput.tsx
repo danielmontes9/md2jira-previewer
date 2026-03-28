@@ -1,4 +1,4 @@
-import { useRef, useCallback } from 'react'
+import { useRef, useCallback, useMemo } from 'react'
 
 interface MarkdownInputProps {
   value: string
@@ -43,6 +43,10 @@ export function MarkdownInput({ value, onChange }: MarkdownInputProps) {
   }, [value])
 
   const lineCount = value.split('\n').length
+  const lineNumbers = useMemo(
+    () => Array.from({ length: lineCount }, (_, i) => <div key={i + 1}>{i + 1}</div>),
+    [lineCount]
+  )
 
   return (
     <div className="flex min-h-0 flex-1 flex-col rounded-lg border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
@@ -70,11 +74,9 @@ export function MarkdownInput({ value, onChange }: MarkdownInputProps) {
         <div
           ref={gutterRef}
           aria-hidden="true"
-          className="select-none overflow-hidden border-r border-neutral-200 bg-neutral-50 px-3 py-4 text-right font-mono text-sm leading-6 text-neutral-400 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-600"
+          className="select-none overflow-hidden border-r border-neutral-200 bg-neutral-50 px-3 py-4 text-right font-mono text-sm leading-6 text-neutral-600 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-400"
         >
-          {Array.from({ length: lineCount }, (_, i) => (
-            <div key={i + 1}>{i + 1}</div>
-          ))}
+          {lineNumbers}
         </div>
         {/* Textarea */}
         <textarea

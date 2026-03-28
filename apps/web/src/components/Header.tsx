@@ -15,7 +15,10 @@ export function Header({ theme, onToggleTheme }: HeaderProps) {
         <img
           src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
           alt="Buy Me A Coffee"
+          width="160"
+          height="40"
           className="h-7 w-auto sm:h-10"
+          loading="lazy"
         />
       </a>
       <div className="flex min-w-0 flex-1 items-center justify-center">

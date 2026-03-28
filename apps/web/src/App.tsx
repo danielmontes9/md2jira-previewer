@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useMemo } from 'react'
 import { convert, convertToAdf } from '@md2jira-previewer/core'
 import { Header } from './components/Header.js'
 import { MarkdownInput } from './components/MarkdownInput.js'
@@ -51,7 +51,7 @@ export function App() {
     setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
   }, [])
 
-  const jiraOutput = useCallback(() => {
+  const jiraOutput = useMemo(() => {
     try {
       if (format === 'adf') {
         return JSON.stringify(convertToAdf(markdown), null, 2)
@@ -80,7 +80,7 @@ export function App() {
         </section>
         <section aria-label="Jira output" className="flex min-h-64 flex-1 flex-col sm:min-h-0">
           <JiraOutput
-            value={jiraOutput()}
+            value={jiraOutput}
             format={format}
             onFormatChange={setFormat}
             markdown={markdown}
