@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/danielmontes9/md2jira-previewer/compare/v1.2.0...v1.2.1) (2026-04-01)
+
+
+### Bug Fixes
+
+* **ci:** upgrade deploy.yml pnpm to v10, expand tsconfig paths for web ([75d3dd5](https://github.com/danielmontes9/md2jira-previewer/commit/75d3dd596a229ee73e9a07e818af5c33b4a8aae9))
+* **ci:** upgrade pnpm to v10 in workflows and fix repository.url format ([dbace0c](https://github.com/danielmontes9/md2jira-previewer/commit/dbace0c1de9eb043f481f0a6efdbb68d18527e42))
+* **web:** add tsconfig paths alias for md2jira-core workspace package ([5e74490](https://github.com/danielmontes9/md2jira-previewer/commit/5e744900365a0627e41ad108a23f3435534b11d2))
+
 # [1.2.0](https://github.com/danielmontes9/md2jira-previewer/compare/v1.1.0...v1.2.0) (2026-04-01)
 
 
