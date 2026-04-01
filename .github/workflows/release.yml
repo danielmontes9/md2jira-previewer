@@ -39,6 +39,9 @@ jobs:
       - name: Build core
         run: pnpm --filter core build
 
+      - name: Verify dist
+        run: ls -la packages/core/dist/
+
       - name: Release
         run: pnpm exec semantic-release
         env:
