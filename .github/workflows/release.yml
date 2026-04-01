@@ -37,7 +37,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build core
-        run: pnpm --filter core build
+        run: pnpm --filter md2jira-core build
 
       - name: Verify dist
         run: ls -la packages/core/dist/

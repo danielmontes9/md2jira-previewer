@@ -42,7 +42,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build core
-        run: pnpm --filter core build
+        run: pnpm --filter md2jira-core build
 
       - name: Build web
         run: pnpm --filter web build

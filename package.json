@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter web dev",
-    "build": "pnpm --filter core build && pnpm --filter web build",
-    "test": "pnpm --filter core test",
+    "build": "pnpm --filter md2jira-core build && pnpm --filter web build",
+    "test": "pnpm --filter md2jira-core test",
     "test:all": "pnpm -r test",
     "lint": "eslint .",
     "typecheck": "pnpm -r typecheck",
