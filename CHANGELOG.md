@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/danielmontes9/md2jira-previewer/compare/v1.1.0...v1.2.0) (2026-04-01)
+
+
+### Features
+
+* **web:** add GitHub link button and responsive 3-row mobile header ([a8cc8ac](https://github.com/danielmontes9/md2jira-previewer/commit/a8cc8ac0b89cddd3541063691f03efbf71ab5499))
+
 # [1.1.0](https://github.com/danielmontes9/md2jira-previewer/compare/v1.0.1...v1.1.0) (2026-03-28)
 
 
