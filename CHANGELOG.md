@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/danielmontes9/md2jira-previewer/compare/v1.2.2...v1.3.0) (2026-04-05)
+
+
+### Bug Fixes
+
+* **web:** responsive toolbar via container queries, plain-text copy fix ([bc50ccf](https://github.com/danielmontes9/md2jira-previewer/commit/bc50ccfb8e39d6f5ddf4a585f1e6414519da1c38))
+
+
+### Features
+
+* **web:** add keyboard shortcuts and editor toolbar improvements ([0b4df53](https://github.com/danielmontes9/md2jira-previewer/commit/0b4df535a0c8e68c570dcea4fa93f7c5bfe1c5a2))
+* **web:** add Tab indent and native undo support to markdown editor ([c4c2c96](https://github.com/danielmontes9/md2jira-previewer/commit/c4c2c96724449deb9164a7db2c744f6b9e3bcb3b))
+* **web:** add Toast notification component and import file validation ([7569041](https://github.com/danielmontes9/md2jira-previewer/commit/75690412f32bd176ddac7092a281443783bebed6))
+
 ## [1.2.2](https://github.com/danielmontes9/md2jira-previewer/compare/v1.2.1...v1.2.2) (2026-04-02)
 
 
