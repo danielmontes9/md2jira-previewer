@@ -7,6 +7,9 @@ dist/
 build/
 *.tsbuildinfo
 
+# Articles (local drafts, not tracked)
+articles/
+
 # Test
 coverage/
 .vitest/
