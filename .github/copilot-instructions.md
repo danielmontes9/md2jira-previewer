@@ -1,8 +1,9 @@
-# GitHub Copilot Instructions — md2jira-previewer
+# GitHub Copilot Instructions — md2jira
 
 ## Project Context
 
-md2jira-previewer converts Markdown to Jira Wiki Markup. It is structured as a pnpm monorepo:
+md2jira converts Markdown to Jira Wiki Markup. It is structured as a pnpm monorepo:
+
 - `packages/core` — pure TypeScript conversion engine, zero browser/React dependencies
 - `apps/web` — React 18 + Vite + Magic UI web application
 
@@ -19,6 +20,7 @@ Read `AGENTS.md` at the repo root for complete architecture documentation.
 ## Commit Messages
 
 Always use Conventional Commits format:
+
 ```
 feat(core): add strikethrough conversion
 fix(tables): handle pipe characters inside cells

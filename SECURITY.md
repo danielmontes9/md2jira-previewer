@@ -10,7 +10,7 @@
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Please use [GitHub's Private Vulnerability Reporting](https://github.com/danielmontes9/md2jira-previewer/security/advisories/new) to report security issues.
+Please use [GitHub's Private Vulnerability Reporting](https://github.com/danielmontes9/md2jira/security/advisories/new) to report security issues.
 
 When reporting, include:
 

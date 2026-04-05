@@ -38,7 +38,7 @@ export function Header({ theme, onToggleTheme }: HeaderProps) {
         </a>
         <div className="flex items-center gap-1 sm:order-3 sm:shrink-0">
           <a
-            href="https://github.com/danielmontes9/md2jira-previewer"
+            href="https://github.com/danielmontes9/md2jira"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-md p-2 text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"

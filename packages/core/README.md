@@ -4,11 +4,11 @@
 
 [![npm version](https://img.shields.io/npm/v/md2jira-core)](https://www.npmjs.com/package/md2jira-core)
 [![npm downloads](https://img.shields.io/npm/dm/md2jira-core)](https://www.npmjs.com/package/md2jira-core)
-[![license](https://img.shields.io/npm/l/md2jira-core)](https://github.com/danielmontes9/md2jira-previewer/blob/main/LICENSE)
+[![license](https://img.shields.io/npm/l/md2jira-core)](https://github.com/danielmontes9/md2jira/blob/main/LICENSE)
 
 Zero browser/React dependencies — works in Node.js, Deno, Bun, CLI tools, and VS Code extensions.
 
-![md2jira-previewer — live two-panel converter: paste Markdown on the left, get an instant Jira-ready preview on the right](https://raw.githubusercontent.com/danielmontes9/md2jira-previewer/main/.github/assets/md2jira-previewer.png)
+![md2jira — live two-panel converter: paste Markdown on the left, get an instant Jira-ready preview on the right](https://raw.githubusercontent.com/danielmontes9/md2jira/main/.github/assets/md2jira-previewer-before-after-core.png)
 
 ## Install
 
@@ -87,7 +87,7 @@ const result = convert('**hello**') // → '*hello*'
 
 ## Live Demo
 
-Try it in the browser: [md2jira-previewer](https://github.com/danielmontes9/md2jira-previewer)
+Try it in the browser: [md2jira-previewer](https://github.com/danielmontes9/md2jira)
 
 ## License
 

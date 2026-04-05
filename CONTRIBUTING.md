@@ -1,4 +1,4 @@
-# Contributing to md2jira-previewer
+# Contributing to md2jira
 
 Thank you for your interest in contributing! This document explains how to set up the project, the workflow for submitting changes, and the standards we follow.
 
@@ -34,8 +34,8 @@ By participating, you agree to our [Code of Conduct](CODE_OF_CONDUCT.md). Please
 
 ```bash
 # 1. Fork and clone
-git clone https://github.com/YOUR-USERNAME/md2jira-previewer.git
-cd md2jira-previewer
+git clone https://github.com/YOUR-USERNAME/md2jira.git
+cd md2jira
 
 # 2. Install all dependencies (monorepo)
 pnpm install
@@ -70,11 +70,12 @@ git checkout -b fix/your-bug-description
 ```
 
 Branch naming convention:
-- `feat/<scope>-<description>`  new feature
-- `fix/<scope>-<description>`  bug fix
-- `docs/<description>`  documentation only
-- `refactor/<scope>-<description>`  refactor without logic change
-- `test/<scope>-<description>`  adding tests
+
+- `feat/<scope>-<description>` new feature
+- `fix/<scope>-<description>` bug fix
+- `docs/<description>` documentation only
+- `refactor/<scope>-<description>` refactor without logic change
+- `test/<scope>-<description>` adding tests
 
 ### 2. Make your changes
 
@@ -115,6 +116,7 @@ Fill in the PR template completely. CIs must pass before merge.
 ## Commit Convention
 
 Format:
+
 ```
 <type>[scope]: <description in imperative mood>
 
@@ -123,19 +125,19 @@ Format:
 [optional footer: BREAKING CHANGE / closes #issue]
 ```
 
-| Type | Use for |
-|------|---------|
-| `feat` | New functionality |
-| `fix` | Bug fix |
-| `docs` | Documentation only |
-| `style` | Formatting, no logic change |
+| Type       | Use for                      |
+| ---------- | ---------------------------- |
+| `feat`     | New functionality            |
+| `fix`      | Bug fix                      |
+| `docs`     | Documentation only           |
+| `style`    | Formatting, no logic change  |
 | `refactor` | Code change without feat/fix |
-| `perf` | Performance improvement |
-| `test` | Adding or fixing tests |
-| `build` | Build system, dependencies |
-| `ci` | CI/CD configuration |
-| `chore` | Maintenance tasks |
-| `revert` | Reverting a commit |
+| `perf`     | Performance improvement      |
+| `test`     | Adding or fixing tests       |
+| `build`    | Build system, dependencies   |
+| `ci`       | CI/CD configuration          |
+| `chore`    | Maintenance tasks            |
+| `revert`   | Reverting a commit           |
 
 Valid scopes: `core`, `web`, `tables`, `lists`, `headers`, `formatting`, `codeblocks`, `cli`, `ci`, `readme`
 
@@ -146,10 +148,11 @@ Valid scopes: `core`, `web`, `tables`, `lists`, `headers`, `formatting`, `codebl
 1. Fill in the PR template
 2. Ensure CI passes: `lint`, `typecheck`, `test`
 3. Link related issues with `closes #123` in the PR description
-4. Request a review  maintainer will review within a few days
-5. Squash merge is used  your branch history is squashed into one clean commit on `main`
+4. Request a review maintainer will review within a few days
+5. Squash merge is used your branch history is squashed into one clean commit on `main`
 
 **PRs that will be rejected:**
+
 - Changes to `packages/core/` with no tests
 - Browser/DOM imports inside `packages/core/`
 - Commits not following Conventional Commits
@@ -180,7 +183,7 @@ This project is optimized for AI-assisted development. If you use GitHub Copilot
 
 ## Reporting Bugs
 
-Use the [bug report template](https://github.com/your-username/md2jira-previewer/issues/new?template=bug_report.md). Include:
+Use the [bug report template](https://github.com/danielmontes9/md2jira/issues/new?template=bug_report.md). Include:
 
 - Markdown input that causes the issue
 - Expected Jira Wiki Markup output
@@ -189,7 +192,7 @@ Use the [bug report template](https://github.com/your-username/md2jira-previewer
 
 ## Suggesting Features
 
-Use the [feature request template](https://github.com/your-username/md2jira-previewer/issues/new?template=feature_request.md).
+Use the [feature request template](https://github.com/danielmontes9/md2jira/issues/new?template=feature_request.md).
 
 ## Security Issues
 

@@ -1,16 +1,16 @@
 <div align="center">
 
-# md2jira-previewer
+# md2jira
 
 **Convert Markdown to Jira Wiki Markup and Atlassian Document Format (ADF), instantly in your browser.**
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/danielmontes9/md2jira-previewer/ci.yml?branch=main&style=flat-square)](https://github.com/danielmontes9/md2jira-previewer/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/danielmontes9/md2jira/ci.yml?branch=main&style=flat-square)](https://github.com/danielmontes9/md2jira/actions)
 [![npm version](https://img.shields.io/npm/v/md2jira-core?style=flat-square)](https://www.npmjs.com/package/md2jira-core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
 
-[**Live Demo**](https://danielmontes9.github.io/md2jira-previewer) &nbsp;·&nbsp; [Report Bug](https://github.com/danielmontes9/md2jira-previewer/issues/new?template=bug_report.md) &nbsp;·&nbsp; [Request Feature](https://github.com/danielmontes9/md2jira-previewer/issues/new?template=feature_request.md)
+[**Live Demo**](https://danielmontes9.github.io/md2jira) &nbsp;·&nbsp; [Report Bug](https://github.com/danielmontes9/md2jira/issues/new?template=bug_report.md) &nbsp;·&nbsp; [Request Feature](https://github.com/danielmontes9/md2jira/issues/new?template=feature_request.md)
 
 </div>
 
@@ -24,9 +24,9 @@
 
 ---
 
-## What is md2jira-previewer?
+## What is md2jira?
 
-md2jira-previewer is an open-source tool that converts **Markdown** into **Jira Wiki Markup** the format Jira uses natively for issue descriptions, comments, and wiki pages.
+md2jira is an open-source tool that converts **Markdown** into **Jira Wiki Markup** the format Jira uses natively for issue descriptions, comments, and wiki pages.
 
 Paste your Markdown on the left, get Jira-ready markup on the right. No backend, no accounts, no data sent anywhere.
 
@@ -57,7 +57,7 @@ Paste your Markdown on the left, get Jira-ready markup on the right. No backend,
 
 ### Web App
 
-Go to [danielmontes9.github.io/md2jira-previewer](https://danielmontes9.github.io/md2jira-previewer) — paste your Markdown, copy the output.
+Go to [danielmontes9.github.io/md2jira](https://danielmontes9.github.io/md2jira) — paste your Markdown, copy the output.
 
 ### JavaScript / TypeScript
 
@@ -105,8 +105,8 @@ pnpm add md2jira-core
 
 ```bash
 # Requires pnpm and Node.js >= 18
-git clone https://github.com/danielmontes9/md2jira-previewer.git
-cd md2jira-previewer
+git clone https://github.com/danielmontes9/md2jira.git
+cd md2jira
 pnpm install
 pnpm --filter web dev
 ```
@@ -117,7 +117,7 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ## Architecture
 
-md2jira-previewer is structured as a **pnpm monorepo** with a strict separation between the conversion engine and the UI:
+md2jira is structured as a **pnpm monorepo** with a strict separation between the conversion engine and the UI:
 
 ```
 packages/core    Pure TypeScript, no browser deps. Usable in Node, browser, VSCode.
