@@ -81,12 +81,12 @@ console.log(jira)
 // | Priority | *High* |
 ```
 
-### CLI (coming soon)
+### CLI
 
 ```bash
-npx md2jira-previewer input.md
-npx md2jira-previewer input.md -o output.txt
-echo "# Title" | npx md2jira-previewer
+npx md2jira-cli input.md
+npx md2jira-cli input.md -o output.txt
+echo "# Title" | npx md2jira-cli
 ```
 
 ---
@@ -99,6 +99,14 @@ echo "# Title" | npx md2jira-previewer
 npm install md2jira-core
 # or
 pnpm add md2jira-core
+```
+
+### CLI
+
+```bash
+npm install -g md2jira-cli
+# or
+pnpm add -g md2jira-cli
 ```
 
 ### Run the web app locally
@@ -133,7 +141,7 @@ The core uses a `Markdown  AST (remark)  Transform  Jira string` pipeline. This 
 - [x] Web App with live preview (MVP)
 - [x] `md2jira-core` published to npm
 - [x] Atlassian Document Format (ADF) output
-- [ ] CLI (`md2jira-previewer` command)
+- [x] CLI (`md2jira` command)
 - [ ] VSCode Extension
 - [ ] Confluence export
 
