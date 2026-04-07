@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter web dev",
-    "build": "pnpm --filter md2jira-core build && pnpm --filter web build",
+    "build": "pnpm --filter md2jira-core build && pnpm --filter md2jira-cli build && pnpm --filter web build",
     "test": "pnpm --filter md2jira-core test",
     "test:all": "pnpm -r test",
+    "test:cli": "pnpm --filter md2jira-cli test",
     "lint": "eslint .",
     "typecheck": "pnpm -r typecheck",
     "format": "prettier --write .",

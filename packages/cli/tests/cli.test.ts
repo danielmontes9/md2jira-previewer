@@ -1,0 +1,118 @@
+import { describe, it, expect, beforeAll, afterAll } from 'vitest'
+import { execFile } from 'node:child_process'
+import { writeFile, readFile, unlink, mkdir } from 'node:fs/promises'
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const CLI_PATH = resolve(__dirname, '..', 'dist', 'index.js')
+const FIXTURES_DIR = resolve(__dirname, 'fixtures')
+
+function run(
+  args: string[],
+  options?: { stdin?: string }
+): Promise<{ stdout: string; stderr: string; exitCode: number }> {
+  return new Promise((resolve) => {
+    const child = execFile('node', [CLI_PATH, ...args], (error, stdout, stderr) => {
+      resolve({
+        stdout,
+        stderr,
+        exitCode: error?.code ? Number(error.code) : (child.exitCode ?? 0),
+      })
+    })
+    if (options?.stdin !== undefined) {
+      child.stdin?.write(options.stdin)
+      child.stdin?.end()
+    }
+  })
+}
+
+const SAMPLE_MD = `# Hello World
+
+This is **bold** and _italic_ text.
+
+- Item 1
+- Item 2
+
+\`\`\`js
+console.log('hello')
+\`\`\`
+`
+
+const EXPECTED_JIRA = `h1. Hello World
+
+This is *bold* and _italic_ text.
+
+* Item 1
+* Item 2
+
+{code:language=js}
+console.log('hello')
+{code}`
+
+beforeAll(async () => {
+  await mkdir(FIXTURES_DIR, { recursive: true })
+  await writeFile(resolve(FIXTURES_DIR, 'sample.md'), SAMPLE_MD, 'utf-8')
+})
+
+afterAll(async () => {
+  const files = ['sample.md', 'output.jira']
+  for (const f of files) {
+    await unlink(resolve(FIXTURES_DIR, f)).catch(() => {})
+  }
+})
+
+describe('md2jira CLI', () => {
+  it('shows help with --help', async () => {
+    const { stdout, exitCode } = await run(['--help'])
+    expect(exitCode).toBe(0)
+    expect(stdout).toContain('Convert Markdown to Jira Wiki Markup')
+    expect(stdout).toContain('--output')
+  })
+
+  it('shows version with --version', async () => {
+    const { stdout, exitCode } = await run(['--version'])
+    expect(exitCode).toBe(0)
+    expect(stdout.trim()).toMatch(/^\d+\.\d+\.\d+$/)
+  })
+
+  it('converts a file to stdout', async () => {
+    const { stdout, exitCode } = await run([resolve(FIXTURES_DIR, 'sample.md')])
+    expect(exitCode).toBe(0)
+    expect(stdout).toBe(EXPECTED_JIRA)
+  })
+
+  it('converts stdin to stdout', async () => {
+    const { stdout, exitCode } = await run([], { stdin: SAMPLE_MD })
+    expect(exitCode).toBe(0)
+    expect(stdout).toBe(EXPECTED_JIRA)
+  })
+
+  it('writes output to file with -o', async () => {
+    const outputPath = resolve(FIXTURES_DIR, 'output.jira')
+    const { exitCode } = await run([resolve(FIXTURES_DIR, 'sample.md'), '-o', outputPath])
+    expect(exitCode).toBe(0)
+    const content = await readFile(outputPath, 'utf-8')
+    expect(content).toBe(EXPECTED_JIRA)
+  })
+
+  it('returns error for nonexistent file', async () => {
+    const { stderr, exitCode } = await run(['nonexistent-file.md'])
+    expect(exitCode).toBe(1)
+    expect(stderr).toContain('ENOENT')
+  })
+
+  it('converts empty input to empty output', async () => {
+    const { stdout, exitCode } = await run([], { stdin: '' })
+    expect(exitCode).toBe(0)
+    expect(stdout).toBe('')
+  })
+
+  it('handles markdown with tables', async () => {
+    const md = '| H1 | H2 |\n|---|---|\n| A | B |\n'
+    const { stdout, exitCode } = await run([], { stdin: md })
+    expect(exitCode).toBe(0)
+    expect(stdout).toContain('||H1||H2||')
+    expect(stdout).toContain('|A|B|')
+  })
+})
